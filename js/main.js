@@ -1,71 +1,64 @@
-// function memoryTotal (){
-//     const memory = document.getElementById('extra-memo');
-//     const memoryCostText = memory.innerText;
-//     const memoryCost = parseFloat(memoryCostText);
-//     memory.innerText = 0;
 
-//     const extraMemory = document.getElementById('extra-memo');
-//     const extraMemoryCostText = extraMemory.innerText;
-//     const extraMemortCost = parseFloat(extraMemoryCostText);
-//     const extraMemoryPrice = extraMemory.innerText =  180;
 
-//     const totalPrice = document.getElementById('total-price');
-//     const totalPriceText = totalPrice.innerText;
-//     const totalPriceInd = parseFloat(totalPriceText);
-
-//     if(extraMemortCost !== 180 && totalPriceInd >= 1299){
-//         totalPrice.innerText = extraMemoryPrice + totalPriceInd;
-//     }
-//     else if(extraMemortCost == 0 && totalPriceInd != 1299 && totalPriceInd >= 1299){
-//         totalPrice.innerText = totalPriceInd - 180;
-//     }else{
-//         totalPrice.innerText = 0 + totalPriceInd;
-//     }
-    
-// }
-
-// memory handle -------
-document.getElementById('normal-memory').addEventListener('click', function() {
-    const memory = document.getElementById('extra-memo');
-    const memoryCostText = memory.innerText;
-    const memoryCost = parseFloat(memoryCostText);
-    memory.innerText = 0;
-
-    const extraMemory = document.getElementById('extra-memo');
+function extraAccessories(accs, accsPrice){
+    const extraMemory = document.getElementById(accs);
     const extraMemoryCostText = extraMemory.innerText;
     const extraMemortCost = parseFloat(extraMemoryCostText);
-
-    const totalPrice = document.getElementById('total-price');
-    const totalPriceText = totalPrice.innerText;
-    const totalPriceInd = parseFloat(totalPriceText);
-
-    if(extraMemortCost == 0 && totalPriceInd != 1299 && totalPriceInd >= 1299){
-        totalPrice.innerText = totalPriceInd - 180;
-    }else{
-        totalPrice.innerText = 0 + totalPriceInd;
-    }
-
-
-
-    // memoryTotal();
-    
-})
-
-// extra memory area -------------
-document.getElementById('extra-memory').addEventListener('click', function(){
-    const extraMemory = document.getElementById('extra-memo');
-    const extraMemoryCostText = extraMemory.innerText;
-    const extraMemortCost = parseFloat(extraMemoryCostText);
-    const extraMemoryPrice = extraMemory.innerText =  180;
+    const extraMemoryPrice = extraMemory.innerText =  accsPrice;
 
     const totalPrice = document.getElementById('total-price');
     const totalPriceText = totalPrice.innerText;
     const totalPriceInd = parseInt(totalPriceText);
 
-    if(extraMemortCost !== 180){
+    const alltotalPrice = document.getElementById('all-Total-price');
+    const allTotalText = alltotalPrice.innerText;
+    const allTotal = parseFloat(allTotalText);
+    const allValu = alltotalPrice.innerText = totalPriceInd;
+   
+
+   // console.log(totalPriceInd);
+
+    if(extraMemortCost !== accsPrice){
         totalPrice.innerText = extraMemoryPrice + totalPriceInd;
     }
-})
+}
+
+function noAccessories(accs, accsPrice){
+    const memory = document.getElementById(accs);
+    const memoryCostText = memory.innerText;
+    const memoryCost = parseFloat(memoryCostText);
+    const extraMemortCost = memory.innerText;
+
+    const totalPrice = document.getElementById('total-price');
+    const totalPriceText = totalPrice.innerText;
+    const totalPriceInd = parseFloat(totalPriceText);
+
+    const alltotalPrice = document.getElementById('all-Total-price');
+    const allTotalText = alltotalPrice.innerText;
+    const allTotal = parseFloat(allTotalText);
+
+    const allValu = alltotalPrice.innerText = totalPriceInd;
+
+    if(extraMemortCost == accsPrice ){
+        totalPrice.innerText = totalPriceInd - accsPrice;
+    }else{
+        totalPrice.innerText = 0 + totalPriceInd;
+    }
+
+    memory.innerText = 0;
+
+}
+
+// memory handle -------
+document.getElementById('normal-memory').addEventListener('click', function() {
+    noAccessories('extra-memo', 180);
+    
+});
+
+// extra memory area -------------
+document.getElementById('extra-memory').addEventListener('click', function(){    
+    extraAccessories('extra-memo', 180);  
+});
 
 
 // storage area -------------
@@ -74,102 +67,81 @@ document.getElementById('normal-storage').addEventListener('click', function(){
     const storageNormal = document.getElementById('extra-store');
     const storageNormalText = storageNormal.innerText;
     const storageNormalCost = parseFloat(storageNormalText);
-    storageNormal.innerText = 0;
+    const storageNormalCostPrice = storageNormalCost;
 
-    const storageNormal2 = document.getElementById('extra-store');
-    const storageNormalText2 = storageNormal2.innerText;
-    const storageNormalCost2 = parseFloat(storageNormalText2);
-
-    const storageNormal3 = document.getElementById('extra-store');
-    const storageNormalText3 = storageNormal3.innerText;
-    const storageNormalCost3 = parseFloat(storageNormalText3);
+   
 
     const totalPrice = document.getElementById('total-price');
     const totalPriceText = totalPrice.innerText;
     const totalPriceInd = parseFloat(totalPriceText);
 
-    //
-    if(storageNormalCost2 == 100  && totalPrice !== 1299){
-        totalPrice.innerHTML = totalPriceInd - 100;
-    }
+    const alltotalPrice = document.getElementById('all-Total-price');
+    const allTotalText = alltotalPrice.innerText;
+    const allTotal = parseFloat(allTotalText);
 
-    // 
-    else if (storageNormalCost3 == 0 && totalPriceInd >= 1299 && totalPriceInd != 1299){
-        totalPrice.innerHTML = totalPriceInd - 180;
-    }
-    else {
-        totalPrice.innerText = 0 + totalPriceInd;
-    }
+    const allValu = alltotalPrice.innerText = totalPriceInd;
 
-})
+    if(storageNormalCostPrice == 100){
+         totalPrice.innerText = totalPriceInd - 100;
+    }else if(storageNormalCostPrice == 180){
+        totalPrice.innerText = totalPriceInd - 180;
+    }
+    storageNormal.innerText = 0;
+
+});
 
 document.getElementById('medium-storage').addEventListener('click', function(){
     const storageNormal = document.getElementById('extra-store');
     const storageNormalText = storageNormal.innerText;
     const storageNormalCost = parseFloat(storageNormalText);
+
     const trorageNormalTotal = storageNormal.innerText = 100;
 
     const totalPrice = document.getElementById('total-price');
     const totalPriceText = totalPrice.innerText;
     const totalPriceInd = parseFloat(totalPriceText);
 
-    if(storageNormalCost !== 100){
+    const alltotalPrice = document.getElementById('all-Total-price');
+    const allTotalText = alltotalPrice.innerText;
+    const allTotal = parseFloat(allTotalText);
+
+    const allValu = alltotalPrice.innerText = totalPriceInd;
+
+    if(storageNormalCost == 180){
+        totalPrice.innerText = totalPriceInd - 180;
+    }else if(storageNormalCost !== 100){
         totalPrice.innerText = trorageNormalTotal + totalPriceInd;
     }
     
-})
+});
 
 document.getElementById('strong-storage').addEventListener('click', function(){
-    const storageNormal = document.getElementById('extra-store');
-    const storageNormalText = storageNormal.innerText;
-    const storageNormalCost = parseFloat(storageNormalText);
-    const storageNormalTotal = storageNormal.innerText = 180;
+     extraAccessories('extra-store', 180);  
+ });
 
-    const totalPrice = document.getElementById('total-price');
-    const totalPriceText = totalPrice.innerText;
-    const totalPriceInd = parseFloat(totalPriceText);
 
-    if(storageNormalCost !== 180){
-        totalPrice.innerText = storageNormalTotal + totalPriceInd;
-    }
-})
+
 
 
 // delivery area -------------
 document.getElementById('free-delivery').addEventListener('click', function (){
-    const delivaryFree = document.getElementById('delivery-crg');
-    const deliveryFreeText = delivaryFree.innerText;
-    const deliveryFree = parseFloat(deliveryFreeText);
-    delivaryFree.innerText  = 0;
-
-    const delivaryFree2 = document.getElementById('delivery-crg');
-    const deliveryFreeText2 = delivaryFree2.innerText;
-    const deliveryFree2 = parseFloat(deliveryFreeText2);
-
-    const totalPrice = document.getElementById('total-price');
-    const totalPriceText = totalPrice.innerText;
-    const totalPriceInd = parseFloat(totalPriceText);
-
-    if(deliveryFree2 == 0 && totalPriceInd != 1299 && totalPriceInd >= 1299){
-        totalPrice.innerText = totalPriceInd - 20;
-    }
-    else{
-        totalPrice.innerText = 0 + totalPriceInd;
-    }
+    noAccessories('delivery-crg', 20); 
 })
 
 document.getElementById('charge-delivery').addEventListener('click', function (){
-    const delivaryFree = document.getElementById('delivery-crg');
-    const deliveryFreeText = delivaryFree.innerText;
-    const deliveryFree = parseFloat(deliveryFreeText);
-    const deliveryFee = delivaryFree.innerText = 20;
+   extraAccessories('delivery-crg', 20);      
+});
 
-    const totalPrice = document.getElementById('total-price');
-    const totalPriceText = totalPrice.innerText;
-    const totalPriceInd = parseFloat(totalPriceText);
 
-    if(deliveryFree !== 20){
-        totalPrice.innerText = deliveryFee + totalPriceInd;
-    }
-    
+document.getElementById('pomo').addEventListener('click', function(){
+    const codeInput = document.getElementById('code-input');
+    const codeInputText = codeInput.value;
+    const code = parseFloat(codeInputText);
+    codeInput.value = 'stevekaku';
+
+    const alltotalPrice = document.getElementById('all-Total-price');
+    const allTotalText = alltotalPrice.innerText;
+    const allTotal = parseFloat(allTotalText);
+
+    alltotalPrice.innerText = allTotal / 20;
 })

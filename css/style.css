@@ -45,27 +45,27 @@ hr.bold-hr{
 }
 
 h4.frist {
-    margin-right: 112px;
+    margin-right: 182px;
 }
 
 h4.second {
-    margin-right: 35px;
+    margin-right: 105px;
 }
 
 h4.therd {
-    margin-right: 42px;
+    margin-right: 112px;
 }
 
 h4.forth {
-    margin-right: 65px;
+    margin-right: 135px;
 }
 
 h4.fifty {
-    margin-right: 110px;
+    margin-right: 180px;
 }
 
 .bottom-area {
-    padding-top: 50px;
+    padding-top: 120px;
 }
 
 .top-area {
@@ -87,3 +87,12 @@ footer {
     text-align: center;
     padding-bottom: 10px;
 }
+
+.pomo-code {
+    margin-top: 25px;
+}
+.pomo-code input {
+    padding: 5px 20px;
+}
+
+
